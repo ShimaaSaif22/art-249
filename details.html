@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ART +249</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gall.css">
+    <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6O5pmDxT+2D9C1j6V" crossorigin="anonymous">
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
+</style>    
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f6f8;
+            padding: 20px;
+        }
+
+        .art-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;  
+            background: rgba(255, 255, 255, 0.628);
+            top: 15%;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 40px auto;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        img {
+            width: 350px;
+            border-radius: 10px;
+            height: 400px;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-top: 15px;
+            color: #333;
+            font-family: 'Montserrat' ,sans-serif;
+            font-style: bold;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            font-family: 'Montserrat' ,sans-serif;
+            font-style: bold;
+        }
+
+        .buttons-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .back-btn {
+            background: #6c63ff;
+        }
+
+        .back-btn:hover {
+            background: #5148d6;
+        }
+
+        .contact-btn {
+            background: #28a745;
+        }
+
+        .contact-btn:hover {
+            background: #1e7e34;
+        }
+
+        /* --------- Popup Styles --------- */
+        .modal {
+            display: none; /* مخفي افتراضياً */
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(5, 38, 84, 0.2);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
+        }
+
+        .modal a {
+            display: block;
+            margin: 15px 0;
+            padding: 10px 15px;
+            border-radius: 10px;
+            background: #6c63ff;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .modal a:hover {
+            background: #5148d6;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<nav id="header">
+    <div class="navbar container">
+        <a href="#index.html">
+            <h1 class="logo">ART +249</h1>
+        </a>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="artist.html">Artist</a></li>
+            <li><a href="requests.html">Drawing requests</a></li>
+            <li><a href="gallery.html">gallery</a></li>
+            <li><a href="login.html">Login</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+<div class="bg-img">
+
+ <div class="art-container">
+    <div class="left">
+    <img id="artImage">
+    </div>
+
+    <div class="right">
+        <h1 id="artTitle"></h1>
+        <h3 id="artistName"></h3>
+        <h3 id="yearCreated"></h3>
+        <p id="artDescription"></p>
+   
+
+    <div class="buttons-container">
+        <a href="gallery.html" class="btn back-btn"><i class="fa-solid fa-angles-left">  back</i></a>
+        <button class="btn contact-btn" id="openModal">📩 تواصل مع الفنان</button>
+    </div>
+     </div>
+</div>
+
+<!-- --------- Popup --------- -->
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h3>اختر طريقة التواصل</h3>
+        <a href="mailto:shimaasaif126@gmail.com?subject=استفسار عن اللوحة" target="_blank">📧  email</a>
+        <a href="https://wa.me/+24990603752?text=مرحبا! أريد الاستفسار عن اللوحة" target="_blank">💬 whatsapp</a>
+    </div>
+</div>
+
+<script>
+    // بيانات اللوحات
+    const artworks = {
+        1: { title: "An artistic painting 1", artist: "الرسام أ", year: "2020", description: "وصف اللوحة الأولى هنا." },
+        2: { title: "An artistic painting 2", artist: "الرسام ب", year: "2019", description: "وصف اللوحة الثانية هنا." },
+        3: { title: "An artistic painting 3", artist: "الرسام ج", year: "2021", description: "وصف اللوحة الثالثة هنا." },
+        4: { title: "An artistic painting 4", artist: "الرسام د", year: "2018", description: "وصف اللوحة الرابعة هنا." },
+        5: { title: "An artistic painting 5", artist: "الرسام هـ", year: "2022", description: "وصف اللوحة الخامسة هنا." },
+        6: { title: "An artistic painting  6", artist: "الرسام و", year: "2020", description: "وصف اللوحة السادسة هنا." },
+        7: { title: "An artistic painting 7", artist: "الرسام ز", year: "2021", description: "وصف اللوحة السابعة هنا." },
+        8: { title: "An artistic painting 8", artist: "الرسام ح", year: "2019", description: "وصف اللوحة الثامنة هنا." },
+        9: { title: "An artistic painting 9", artist: "الرسام ط", year: "2022", description: "وصف اللوحة التاسعة هنا." }
+    };
+
+    // قراءة رقم اللوحة من الرابط
+    const params = new URLSearchParams(window.location.search);
+    const artNumber = params.get("art");
+    const art = artworks[artNumber];
+
+    // تعيين البيانات
+    document.getElementById("artImage").src = "img/art" + artNumber + ".jpg";
+    document.getElementById("artTitle").innerText = art.title;
+    document.getElementById("artistName").innerText = "Artist: " + art.artist;
+    document.getElementById("yearCreated").innerText = "Year of construction: " + art.year;
+    document.getElementById("artDescription").innerText = art.description;
+
+    // --------- Popup Logic ---------
+    const modal = document.getElementById("contactModal");
+    const openBtn = document.getElementById("openModal");
+    const closeBtn = document.getElementById("closeModal");
+
+    openBtn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</div>
+</body>
+</html>
