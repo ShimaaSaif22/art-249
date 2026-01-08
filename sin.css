@@ -22,9 +22,9 @@
     z-index: 999;
     text-align: center;
     padding: 60px 30px;
-    background-color: #0629348e;
+    background-color: #162d6c;
     box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);  
-    height: 470px;  
+    height: 500px;  
 }
 /* Full-width input fields */
 input[type=text], input[type=password] , input[type=email] {
@@ -47,11 +47,12 @@ hr {
 }
 
 /* Set a style for all buttons */
-button {
-  background-color: #04AA6D;
+button {  
+  background: #8d6d1e;
+  border: 1px solid #3d2913;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 9px 0;
   border: none;
   cursor: pointer;
   width: 100%;
@@ -69,7 +70,8 @@ button a {
 /* Extra styles for the cancel button */
 .cancelbtn {
   padding: 14px 20px;
-  background-color: #f44336;
+  background: #8d6d1e;
+  border: 1px solid #3d2913;
 }
 
 /* Float cancel and signup buttons and add an equal width */
