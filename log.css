@@ -10,6 +10,11 @@
     background-size: cover;
     background-position: center;
 }
+:root {
+    --dark-gray: #162d6c;
+    --light-brown:  #163286;
+    --bg-color: #8d6d1e;
+}
 
 .content {
     position: absolute;
@@ -20,7 +25,7 @@
     z-index: 999;
     text-align: center;
     padding: 60px 30px;
-    background-color: #162d6c;
+    background-color: var(--light-brown);
     box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);  
     height: 500px;  
 }
@@ -96,7 +101,7 @@
 }
 
 .field input[type="submit"] {
-    background: #8d6d1e;
+    background: var(--bg-color);
     border: 1px solid #3d2913;
     color: rgb(255, 255, 255);
     font-size: 18px;
@@ -126,7 +131,7 @@
     height: 45px;
     line-height: 45px;
     margin-left: 10px;
-    background: #8d6d1e;
+    background: var(--bg-color);
     border: 1px solid #3d2913;
     cursor: pointer;
 }

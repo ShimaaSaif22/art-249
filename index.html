@@ -1,39 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">                    
-<head>    
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ART +249</title>
+
+    <!-- Normalize -->
+    <link rel="stylesheet" href="normalize.css">
+
+    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="home.css">
+
     <!-- Font Awesome -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6O5pmDxT+2D9C1j6V" crossorigin="anonymous">
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
-</style>
+       <link rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+       integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4Ck8M5L1WlZg7+J0xX0xC5Fkg=="
+       crossorigin="anonymous"
+       referrerpolicy="no-referrer">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@300;400;700;800&family=Oswald:wght@200;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
 <!-- Header -->
 <nav id="header">
     <div class="navbar container">
-        <a href="#index.html">
-            <h1 class="logo">ART +249</h1>
-        </a>
+        
+            <h1 class="logo"><a href="index.html">ART +249</a></h1>
+    
 
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="artist.html">Artist</a></li>
-            <li><a href="requests.html">Drawing requests</a></li>
-            <li><a href="gallery.html">gallery</a></li>
-            <li><a href="login.html">Login</a></li>
-
-        </ul>
+        <div class="toggle-menu" id="menu-btn">☰</div>
+      <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="artist.html">Artist</a></li>
+          <li><a href="requests.html">Drawing Requests</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="login.html">Login</a></li>
+      </ul>
     </div>
 </nav>
+<!-- Hero Section -->
 <div class="bg-img">
+    <div class="overlay">
+        <div class="text">
+            <h2>
+                Hello everyone <br>
+                This is where art resides
+            </h2>
+            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt
+            nibh pulvinar a. Curabitur aliquet quam. Accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet
+            elit, eget tincidunt.</p>
+        </div>
+    </div>
+    
+<br><br><br>
 
-</div>    
+</div>
 
+<script>
+    const menuBtn = document.getElementById("menu-btn");
+    const navMenu = document.getElementById("nav-menu");
 
+    menuBtn.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+    });
+</script>
 </body>
 </html>
