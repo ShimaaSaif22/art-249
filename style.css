@@ -5,11 +5,17 @@
     box-sizing: border-box;
 }
 
+html ,
+body {
+    max-height: 100vh;
+    width: 100%;
+}
 /* ================= Variables ================= */
 :root {
     --dark-gray: #162d6c;
     --light-brown: #163286c0;
     --bg-color: #8d6d1e;
+    --dark-bg-color: #2147bcc0;
 }
 
 /* ================= Global ================= */
@@ -19,6 +25,14 @@ html {
 
 ul {
     list-style: none;
+}
+ 
+a {
+    transform: none;
+}
+
+h1 {
+    font-family: "Open Sans", sans-serif;
 }
 
 .container {
@@ -51,6 +65,8 @@ ul {
     position: fixed;
     top: 0;
     width: 100%;
+    padding: 0 20px 0;
+    margin: 0;
     background-color: var(--dark-gray);
     border-bottom: 1px solid #70bace;
     z-index: 1000;
@@ -58,6 +74,7 @@ ul {
 
 #header .navbar {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     height: 90px;
@@ -65,7 +82,7 @@ ul {
 
 #header .logo {
     font-family: "Open Sans", sans-serif;
-    padding: 0 20px;
+    padding: 0;
     font-size: 40px;
     font-weight: bold;
     color: #f1efdc;
@@ -159,14 +176,16 @@ ul {
 }
 
 /* ================= Background Section ================= */
-.bg-img {
-    background-image: url("img/Starry Night_.jpg");
-    height: 100vh;
+body {
+    background: url('img/Starry Night_.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
-    position: relative;
+    min-height: 100vh;
 }
 
+.bg-img {
+    padding-top: 90px;
+    text-align: center;
+}
 /* Start Landing */
 
 .overlay {
@@ -202,40 +221,57 @@ ul {
 }
 /* End Landing */
 
-/* ================= Portfolio ================= */
-/* Container الصور */
-.Portfolio .img-container {
-  display: grid;
-  padding-top: 120px; /* لتجنب تداخل مع الهيدر */
+/* ================= start arty ================= */
+.arty-page {
+    background-color: var(--dark-bg-color);
+    background-image: none;
+    text-align: center;
+    padding: 50px;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+.Portfolio {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.Portfolio h1 {
+  margin-bottom: 30px;
+}
+
+/* Wrapper السحب */
+.gallery-wrapper {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding: 0 40px;
+}
+
+.gallery-wrapper::-webkit-scrollbar { display: none; }
+
+.gallery-scroll {
+  display: flex;
   gap: 15px;
-  grid-template-columns: repeat(1, 1fr); /* موبايل عمود واحد */
+  cursor: grab;
 }
 
-/* تابلت: عمودين */
-@media (min-width: 768px) {
-  .Portfolio .img-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* شاشة كبيرة: 5 أعمدة */
-@media (min-width: 1200px) {
-  .Portfolio .img-container {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
+.gallery-scroll:active { cursor: grabbing; }
 
 /* كل صندوق صورة */
-.Portfolio .img-container .box {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  height: 200px; /* ارتفاع ثابت لكل الصور */
+.gallery-scroll .box {
+  flex: 0 0 250px;
+  height: 200px;
   border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s;
 }
 
-/* الصورة */
-.Portfolio .img-container .box img {
+.gallery-scroll .box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -243,56 +279,285 @@ ul {
   transition: transform 0.3s;
 }
 
-.Portfolio .img-container .box:hover img {
+.gallery-scroll .box:hover img {
   transform: scale(1.1);
 }
 
 /* Caption overlay */
-.Portfolio .img-container .box .caption {
+.gallery-scroll .box .caption {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(0,0,0,0.6); /* خلفية شفافة */
+  background: rgba(0,0,0,0.6);
   color: #fff;
   text-align: center;
   padding: 10px 5px;
-  opacity: 0;           /* مخفي افتراضياً */
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.Portfolio .img-container .box:hover .caption {
-  opacity: 1;           /* يظهر عند hover */
+.gallery-scroll .box:hover .caption {
+  opacity: 1;
 }
 
-/* عنوان ووصف */
-.Portfolio .img-container .box .caption h4 {
-  margin: 0 0 5px 0;
-  font-size: 14px;
-  font-weight: bold;
-}
+.gallery-scroll .box .caption h4 { margin: 0 0 5px; font-size: 14px; font-weight: bold; }
+.gallery-scroll .box .caption p { margin: 0; font-size: 12px; }
 
-.Portfolio .img-container .box .caption p {
-  margin: 0;
-  font-size: 12px;
-}
-
-/* زر "More" */
-.Portfolio .more {
-  display: block;
-  width: fit-content;
-  margin: 30px auto;
-  padding: 15px 20px;
-  background-color: var(--bg-color);
+/* الأسهم */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  padding: 10px;
+  background: rgba(0,0,0,0.5);
   color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 5px;
-  text-align: center;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
   z-index: 10;
-  position: relative;
+  transition: background 0.3s;
 }
-.Portfolio .more:hover {
-  background-color: #3d2913;
+.scroll-btn.left { left: 5px; }
+.scroll-btn.right { right: 5px; }
+.scroll-btn:hover { background: rgba(0,0,0,0.8); }
+
+/* Responsive */
+@media (max-width: 480px) { .gallery-scroll .box { flex: 0 0 180px; height: 150px; } }
+@media (min-width:481px) and (max-width: 767px) { .gallery-scroll .box { flex: 0 0 200px; height: 180px; } }
+@media (min-width: 768px) and (max-width: 1199px) { .gallery-scroll .box { flex: 0 0 220px; height: 200px; } }
+@media (min-width: 1200px) { .gallery-scroll .box { flex: 0 0 250px; height: 200px; } }
+/* ================= End arty ================= */
+/* ================= Gallery ================= */
+.gallery-page{
+    background-color: var(--dark-bg-color);
+    background-image: none;
+    text-align: center;
+    padding-top: 90px;
+    color: white;
+    font-family: "Open Sans", sans-serif;
 }
-/* ================= End Portfolio ================= */
+
+        .gall {
+            text-shadow: 0 0 5px #000;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+         
+        .gall:hover {
+            color: var(--light-brown);
+            text-shadow: #ffffff;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .card {
+            flex: 1 1 calc((100% - 15px) / 4); /* 4 صور في الصف مع فجوة 15px */
+            max-width: 250px;
+            height: 270px;
+            width: 250px;
+            flex-direction: column;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+            display: flex;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .buttons {
+            padding-top: 10px;
+            margin-bottom: 40px;
+        }
+
+        .buttons button {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 16px;
+            background: linear-gradient(135deg, #303b72, #1a0e69);
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .buttons button:hover {
+            background: linear-gradient(135deg, #9b8cff, #6c63ff);
+        }
+        .buttons button:focus {
+            outline: none;
+        }
+        .hidden {
+            display: none;
+        }
+
+@media (max-width: 1024px) {
+    .card {
+        flex: 0 1 calc((100% - 2 * 15px) / 3); /* 3 صور + 2 gaps */
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 0 1 calc((100% - 15px) / 2); /* 2 صور + 1 gap */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        flex: 0 1 100%; /* صورة واحدة في الصف */
+    }
+}
+/* ================= End Gallery ================= */
+/* ================= Start Details ================= */
+  body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .art-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;  
+            background: rgba(255, 255, 255, 0.671);
+            top: 15%;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 40px auto;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        img {
+            width: 350px;
+            border-radius: 10px;
+            height: 400px;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-top: 15px;
+            font-family: 'Montserrat' ,sans-serif;
+            font-style: bold;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            font-family: 'Montserrat' ,sans-serif;
+            font-style: bold;
+        }
+
+        .buttons-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            width: 100%;
+            height: 45px;
+            line-height: 45px;
+            margin-left: 10px;
+            background: var(--bg-color);
+            border: 1px solid #3d2913;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+            justify-content: center;
+        }
+
+     
+        .btn:hover {
+            background: #3d2913;
+            opacity: 1;
+        }   
+        /* --------- Popup Styles --------- */
+        .modal {
+            display: none; /* مخفي افتراضياً */
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(5, 38, 84, 0.2);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
+        }
+
+        .modal a {
+            display: block;
+            margin: 15px 0;
+            padding: 10px 15px;
+            border-radius: 10px;
+            background: var(--bg-color);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .modal a:hover {
+            background: #3d2913;
+        }
+/* ================= End Details ================= */
+/* ================= Start Login & SignUp ================= */

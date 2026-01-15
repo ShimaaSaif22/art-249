@@ -100,23 +100,27 @@
     text-decoration: underline;
 }
 
-.field input[type="submit"] {
-    background: var(--bg-color);
-    border: 1px solid #3d2913;
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-    letter-spacing: 1px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Montserrat' ,sans-serif;
+.button {  
+   background: var(--bg-color);
+   border: 1px solid #3d2913;
+   color: white;
+   padding: 14px 20px;
+   margin: 9px 0;
+   border: none;
+   cursor: pointer;
+   width: 50%;
+   opacity: 0.9;
 }
 
-.field input[type="submit"]:hover {
-    background: #6e4414;
-}
+.fiel button:hover {
+  opacity:1;
+  background: #3d2913;
+}   
+
 .login {
     color: white;
     margin: 20px 0px;
+    padding: 0;
     font-family: 'Poppins' ,sans-serif;
 }
 .links {
