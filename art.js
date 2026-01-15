@@ -13,24 +13,13 @@
         });
     });
 // JavaScript for horizontal scrolling gallery
-const scrollContainer = document.querySelector('.gallery-scroll');
-const btnRight = document.querySelector('.scroll-btn.right');
+const scrollContainer = document.querySelector('.gallery-wrapper');
 const btnLeft = document.querySelector('.scroll-btn.left');
-const scrollAmount = 265; // عرض الصورة + gap
+const btnRight = document.querySelector('.scroll-btn.right');
 
-// الأسهم
-btnRight.addEventListener('click', () => {
-  scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-});
-btnLeft.addEventListener('click', () => {
-  scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-});
+let isDown = false, startX, scrollLeft;
 
-// السحب بالماوس
-let isDown = false;
-let startX;
-let scrollLeft;
-
+// Mouse drag
 scrollContainer.addEventListener('mousedown', (e) => {
   isDown = true;
   startX = e.pageX - scrollContainer.offsetLeft;
@@ -45,7 +34,7 @@ scrollContainer.addEventListener('mousemove', (e) => {
   scrollContainer.scrollLeft = scrollLeft - (x - startX);
 });
 
-// السحب باللمس
+// Touch drag
 scrollContainer.addEventListener('touchstart', (e) => {
   startX = e.touches[0].pageX - scrollContainer.offsetLeft;
   scrollLeft = scrollContainer.scrollLeft;
@@ -54,3 +43,8 @@ scrollContainer.addEventListener('touchmove', (e) => {
   const x = e.touches[0].pageX - scrollContainer.offsetLeft;
   scrollContainer.scrollLeft = scrollLeft - (x - startX);
 });
+
+// Buttons
+const scrollAmount = 235; // عرض العمود + gap
+btnRight.addEventListener('click', () => scrollContainer.scrollBy({left: scrollAmount, behavior: 'smooth'}));
+btnLeft.addEventListener('click', () => scrollContainer.scrollBy({left: -scrollAmount, behavior: 'smooth'}));
