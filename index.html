@@ -4,70 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ART +249</title>
-
-    <!-- Normalize -->
-    <link rel="stylesheet" href="normalize.css">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Font Awesome -->
-       <link rel="stylesheet"
-     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-       integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4Ck8M5L1WlZg7+J0xX0xC5Fkg=="
-       crossorigin="anonymous"
-       referrerpolicy="no-referrer">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@300;400;700;800&family=Oswald:wght@200;700&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet" />
+  </head>
 
 <body>
-
-<!-- Header -->
-<nav id="header">
-    <div class="navbar container">
-        
-            <h1 class="logo"><a href="index.html">ART +249</a></h1>
     
 
-        <div class="toggle-menu" id="menu-btn">☰</div>
-      <ul id="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="artist.html">Artist</a></li>
-          <li><a href="requests.html">Drawing Requests</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="login.html">Login</a></li>
+<!-- Header -->
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+            <h1 class="logo"><a href="index.html">ART +249</a></h1>
+          <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#main"
+          aria-controls="main"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="main">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 active" aria-current="page"href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3"href="#about">About</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link p-2 p-lg-3" href="#artist">Artist</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link p-2 p-lg-3" href="requests.html">Drawing Requests</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link p-2 p-lg-3" href="gallery.html">Gallery</a>
+        </li>
       </ul>
+      
+          <div class="search ps-3 pe-3 d-none d-lg-block">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          
+          <a class="btn rounded-pill main-btn" href="login.html">Login</a>
     </div>
 </nav>
 <!-- Hero Section -->
-<div class="bg-img">
-    <div class="overlay">
-        <div class="text">
-            <h2>
-                Hello everyone <br>
-                This is where art resides
-            </h2>
-            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt
-            nibh pulvinar a. Curabitur aliquet quam. Accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet
-            elit, eget tincidunt.</p>
-        </div>
+<div class="bg-img" style="background-image: url('img/Starry Night_.jpg');">
+   <section class="hero d-flex justify-content-center align-items-center">
+    <div class="hero-box text-light p-4 text-start mt-5">
+        <h2 class="mb-3">
+            Hello everyone <br>
+            This is where art resides
+        </h2>
+        <p>
+            Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+            Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+            Curabitur aliquet quam.
+        </p>
     </div>
-    
-<br><br><br>
-
+</section>
 </div>
 
-<script>
-    const menuBtn = document.getElementById("menu-btn");
-    const navMenu = document.getElementById("nav-menu");
+<!-- ================= About Section ================= -->
+<section id="about" class="about-section">
+    <div class="container">
+        <h2>About ART +249</h2>
+        <p>
+            ART +249 is a community where artists and art lovers connect. 
+            We showcase amazing artwork, provide drawing requests, and celebrate creativity. 
+            Join us to explore, learn, and share your passion for art!
+        </p>
+    </div>
+</section>
 
-    menuBtn.addEventListener("click", () => {
-        navMenu.classList.toggle("show");
-    });
+<!--================= Artist Section ================= -->
+<section class="portfolio py-5 text-center" id="artist">
+  <div class="container-fluid">
+
+<h1 class="text-center text-white display-3 fw-bold mb-4 gallery-title">
+  Gallery
+</h1>
+    <div class="position-relative">
+
+      <!-- Gallery -->
+      <div class="gallery-scroll d-flex gap-3 overflow-auto px-5" id="gallery">
+
+        <!-- Gallery items -->
+        <div class="gallery-box">
+          <img src="img/art1.jpg" alt="Art 1">
+          <div class="caption">
+            <h4>Artist 1</h4>
+            <p>Digital Art</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art2.jpg" alt="Art 2">
+          <div class="caption">
+            <h4>Artist 2</h4>
+            <p>Sketch</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art3.jpg" alt="Art 3">
+          <div class="caption">
+            <h4>Artist 3</h4>
+            <p>Traditional</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art4.jpg" alt="Art 4">
+          <div class="caption">
+            <h4>Artist 4</h4>
+            <p>Digital Art</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art5.jpg" alt="Art 5">
+          <div class="caption">
+            <h4>Artist 5</h4>
+            <p>Digital Art</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art6.jpg" alt="Art 6">
+          <div class="caption">
+            <h4>Artist 6</h4>
+            <p>Traditional</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art7.jpg" alt="Art 7">
+          <div class="caption">
+            <h4>Artist 7</h4>
+            <p>Digital Art</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art8.jpg" alt="Art 8">
+          <div class="caption">
+            <h4>Artist 8</h4>
+            <p>Sketch</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art9.jpg" alt="Art 9">
+          <div class="caption">
+            <h4>Artist 9</h4>
+            <p>Traditional</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art10.jpg" alt="Art 10">
+          <div class="caption">
+            <h4>Artist 10</h4>
+            <p>Digital Art</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- arrows -->
+      <button class="scroll-btn left" id="scrollLeft">&#10094;</button>
+      <button class="scroll-btn right" id="scrollRight">&#10095;</button>
+
+    </div>
+  </div>
+</section>
+
+<!-- JS Scroll -->
+<script>
+  const gallery = document.getElementById("gallery");
+  const leftBtn = document.getElementById("scrollLeft");
+  const rightBtn = document.getElementById("scrollRight");
+
+  // تحقق من العنصر
+  console.log(gallery); 
+
+  // Scroll functionality
+  rightBtn.onclick = () => gallery.scrollBy({ left: 300, behavior: "smooth" });
+  leftBtn.onclick = () => gallery.scrollBy({ left: -300, behavior: "smooth" });
 </script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/all.min.js"></script>
 </body>
 </html>

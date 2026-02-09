@@ -1,50 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">                    
-<head>    
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=800">
     <title>ART +249</title>
-    
     <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="abo.css">
-
     <!-- Font Awesome -->
-       <link rel="stylesheet"
-     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-       integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4Ck8M5L1WlZg7+J0xX0xC5Fkg=="
-       crossorigin="anonymous"
-       referrerpolicy="no-referrer">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4Ck8M5L1WlZg7+J0xX0xC5Fkg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@300;400;700;800&family=Oswald:wght@200;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- Header -->
+
+<!-- Header / Navbar -->
 <nav id="header">
     <div class="navbar container">
         <a href="index.html">
             <h1 class="logo">ART +249</h1>
         </a>
-
         <div class="toggle-menu" id="menu-btn">☰</div>
-<ul id="nav-menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="artist.html">Artist</a></li>
-    <li><a href="requests.html">Drawing Requests</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="login.html">Login</a></li>
-</ul>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="artist.html">Artist</a></li>
+            <li><a href="requests.html">Drawing Requests</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
     </div>
 </nav>
 
- <div class="bg-img">
+<!-- ================= About Section ================= -->
+<section id="about" class="about-section">
+    <div class="container">
+        <h2>About ART +249</h2>
+        <p>
+            ART +249 is a community where artists and art lovers connect. 
+            We showcase amazing artwork, provide drawing requests, and celebrate creativity. 
+            Join us to explore, learn, and share your passion for art!
+        </p>
+    </div>
+</section>
 
+<!-- JS Menu Toggle -->
+<script>
+    const menuBtn = document.getElementById("menu-btn");
+    const navMenu = document.getElementById("nav-menu");
 
-</div>
+    menuBtn.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+    });
+</script>
 
 </body>
 </html>

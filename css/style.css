@@ -5,300 +5,263 @@
     box-sizing: border-box;
 }
 
-html ,
-body {
-    background: url('img/Starry Night_.jpg') no-repeat center center fixed;
-    background-size: cover;
-    overflow: hidden;
-    padding-top: 90px;
+html, body {
     width: 100%;
+    overflow-x: hidden;
+    font-family: "Open Sans", sans-serif;
 }
+
 /* ================= Variables ================= */
 :root {
     --dark-gray: #162d6c;
-    --light-brown: #163286c0;
-    --bg-color: #8d6d1e;
-    --dark-bg-color: #2147bcc0;
-}
-
-/* ================= Global ================= */
-html {
-    scroll-behavior: smooth;
-}
-
-ul {
-    list-style: none;
-}
- 
-a {
-    transform: none;
-}
-
-h1 {
-    font-family: "Open Sans", sans-serif;
-}
-
-.container {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@media (min-width: 768px) {
-    .container {
-        width: 750px;
-    }
-}
-
-@media (min-width: 992px) {
-    .container {
-        width: 970px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .container {
-        width: 1170px;
-    }
+    --light-brown: rgba(22,50,134,0.75);
+    --green-color: #b6dcf7;
+    --yellow-color: #e8da18;
+    --orange-color: #a8630d;
 }
 
 /* ================= Header ================= */
-#header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: var(--dark-gray);
-    border-bottom: 1px solid #70bace;
-    z-index: 1000;
-}
 
-#header .navbar {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
+.main-btn {
+  background-color: var(--yellow-color);
+  color: var(--light-brown);
+  padding: 0.5rem 1rem;
 }
-
-#header .logo {
-    font-family: "Open Sans", sans-serif;
-    padding: 0;
+.main-btn:hover {
+  background-color: var(--orange-color);
+  color: white;
+}
+.main-title::after {
+  content: "";
+  width: 120px;
+  height: 2px;
+  background-color: var(--green-color);
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.logo a {
+    color: #f1efdc;
     font-size: 40px;
     font-weight: bold;
-    color: #f1efdc;
-    text-shadow: 0 0 3px #143f51;
-}
-
-#header .logo a {
-    color: #f1efdc;
     text-decoration: none;
-}
-
-#header .logo a:hover {
-    color: #637bc4;
-}
-.toggle-menu {
-    font-size: 32px;
-    color: white;
-    cursor: pointer;
-    display: block;
-    z-index: 2000;
 }
 
 /* ================= Navigation ================= */
-/* القائمة مخفية افتراضيًا على الموبايل */
-#nav-menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--dark-gray);
-    z-index: 1500;
+/* Start Navbar */
+.navbar {
+  background-color: var(--dark-gray);
 }
 
-/* عند الضغط على أيقونة تظهر */
-#nav-menu.show {
-    display: flex;
+.navbar .navbar-nav .nav-link {
+  color: white;
 }
-
-/* للشاشات الكبيرة (desktop) */
-@media (min-width: 768px) {
-    #nav-menu {
-        display: flex;
-        position: static; /* ليست absolute */
-        flex-direction: row;
-        width: auto;
-        background-color: transparent;
-    }
-
-    #nav-menu li a {
-        color: #ffffff;
-    font-size: 18px;
-    margin: 0 20px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    text-decoration: none;
-    }
-
-    .toggle-menu {
-        display: none; /* إخفاء أيقونة ☰ */
-    }
-    #nav-menu li a:hover {
-    color: #637bc4;
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link:focus,
+.navbar .navbar-nav .nav-link:hover {
+  color: var(--green-color);
 }
-
+.navbar .search {
+  border-left: 1px solid var(--green-color);
+}
+.navbar .search svg {
+  color: var(--green-color);
+}
+.navbar .navbar-toggler {
+  color: white;
+  font-size: 25px;
+  border-color: white;
+}
+.navbar .navbar-toggler:focus {
+  box-shadow: none;
+}
+.navbar .navbar-toggler[aria-expanded="true"] {
+  border-color: var(--green-color);
 }
 
 
-/* ================= Mobile Menu ================= */
-@media (max-width: 767px) {
-    #nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--dark-gray);
-        z-index: 1500;
-    }
-
-    #nav-menu.show {
-        display: flex;
-    }
-
-    #nav-menu li a {
-        padding: 15px;
-        margin: 0;
-    }
-}
-
+/* ================= Hero Section ================= */
 .bg-img {
-    padding-top: 90px;
-    text-align: center;
-}
-/* Start Landing */
-
-.overlay {
-    position: absolute;
-    inset: 0;
-    background-color: rgb(0 0 0 / 60%);
+    position: relative;
+    height: calc(100vh - 90px);
+    background: url('img/Starry Night_.jpg') no-repeat center center/cover;
 }
 
-.text {
-    position: absolute;
-    top: 60%;
-    left: 30%;
-    transform: translate(-50%, -50%);
-    color: #f1efdc;
-    width: 50%;
-    padding: 50px;
-    background-color: var(--light-brown);
-    display: flex;
-    flex-direction: column;
+.hero-box {
+  max-width: 520px;
+  background-color: rgba(1, 60, 136, 0.65);
 }
 
-.text h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 5px #000;
-    line-height: 1.4;
+.hero-box h2 {
+  font-size: 32px;
+  font-weight: 600;
 }
 
-.text p {
-    font-size: 14px;
-    text-shadow: 0 0 5px #000;
-    line-height: 1.6;
+.hero-box p {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Responsive Hero */
+@media (max-width: 767px) {
+    .text {
+        width: 90%;
+        padding: 15px;
+    }
+    .text h2 {
+        font-size: 24px;
+    }
+    .text p {
+        font-size: 12px;
+    }
 }
 /* End Landing */
 
-/* ================= start arty ================= */
-.arty-page {
-    background-color: var(--dark-bg-color);
-    background-image: none;
+/* ================= About Section ================= */
+
+.about-section {
+    padding: 100px 20px;
+    background-color: #cbc9ae;
     text-align: center;
-    padding: 50px;
-    color: white;
-    font-family: "Open Sans", sans-serif;
+    position: relative; /* للتأكد من ترتيب العناصر */
+    overflow: hidden;   /* يمنع أي عناصر خارجية من الخروج */
 }
-.Portfolio { text-align: center; padding: 50px 0; }
-.gallery-wrapper {
+
+.about-section .container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-section h2 {
+    font-size: 36px;
+    color: #162d6c;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.about-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* إضافة تأثير Fade-In عند التمرير (اختياري) */
+.about-section .container {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .about-section {
+        padding: 60px 15px;
+    }
+
+    .about-section h2 {
+        font-size: 28px;
+    }
+
+    .about-section p {
+        font-size: 16px;
+    }
+}
+/* ================= End About Section ================= */
+.portfolio {
+  background-color: var(--dark-gray);
+}
+.gallery-title {
   position: relative;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  padding: 20px 50px;
+  display: inline-block;
 }
-.gallery-wrapper::-webkit-scrollbar { display: none; }
 
+.gallery-title::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 4px;
+  background: #cbc9ae;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
 .gallery-scroll {
-  display: flex;
-  gap: 15px;
-  cursor: grab;
+  scroll-behavior: smooth;
 }
-.gallery-scroll:active { cursor: grabbing; }
-
-.column {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.gallery-scroll::-webkit-scrollbar {
+  display: none;
 }
 
-.box {
+.gallery-box {
   width: 220px;
   height: 180px;
   border-radius: 6px;
   overflow: hidden;
   position: relative;
+  flex-shrink: 0;
 }
 
-.box img {
+.gallery-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.3s;
+  transition: transform .3s;
 }
 
-.box:hover img { transform: scale(1.1); }
+.gallery-box:hover img {
+  transform: scale(1.1);
+}
 
+/* caption */
 .caption {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.6);
+  inset: 0;
+  background: rgba(0,0,0,.6);
   color: #fff;
-  text-align: center;
-  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: .3s;
+  text-align: center;
 }
 
-.box:hover .caption { opacity: 1; }
+.gallery-box:hover .caption {
+  opacity: 1;
+}
 
-/* الأسهم */
+/* arrows */
 .scroll-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 30px;
-  padding: 10px;
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
-  cursor: pointer;
+  border: none;
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  font-size: 24px;
   z-index: 10;
 }
-.scroll-btn.left { left: 5px; }
-.scroll-btn.right { right: 5px; }
-.scroll-btn:hover { background: rgba(0,0,0,0.8); }
-/* ================= End arty ================= */
+.scroll-btn:hover {
+  background: rgba(0,0,0,.8);
+}
+.scroll-btn.left {
+  left: 10px;
+}
+.scroll-btn.right {
+  right: 10px;
+}
 /* ================= Gallery ================= */
 .gallery-page{
     background-color: var(--dark-bg-color);
@@ -460,7 +423,7 @@ h1 {
             flex-wrap: wrap;
         }
 
-        .btn {
+        .bttn {
             width: 100%;
             height: 45px;
             line-height: 45px;
@@ -474,7 +437,7 @@ h1 {
         }
 
      
-        .btn:hover {
+        .bttn:hover {
             background: #3d2913;
             opacity: 1;
         }   
@@ -530,4 +493,3 @@ h1 {
             background: #3d2913;
         }
 /* ================= End Details ================= */
-/* ================= Start Login & SignUp ================= */
