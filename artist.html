@@ -44,31 +44,122 @@
     </div>
 </nav>
 
-<!-- Hero Section with Background -->
 
-<section class="Portfolio">
-  <h1>Gallery</h1>
-  <div class="gallery-wrapper">
-  <div class="gallery-scroll">
-    <div class="box">
-      <div class="box"><img src="img/art1.jpg" alt="Art 1"><div class="caption"><h4>Artist 1</h4><p>Digital Art</p></div></div>
-      <div class="box"><img src="img/art2.jpg" alt="Art 2"><div class="caption"><h4>Artist 2</h4><p>Sketch</p></div></div>
-      <div class="box"><img src="img/art3.jpg" alt="Art 3"><div class="caption"><h4>Artist 3</h4><p>Traditional</p></div></div>
-     <div class="column">
-      <div class="box"><img src="img/art4.jpg" alt="Art 4"><div class="caption"><h4>Artist 4</h4><p>Digital Art</p></div></div>
-      <div class="box"><img src="img/art5.jpg" alt="Art 5"><div class="caption"><h4>Artist 5</h4><p>Sketch</p></div></div>
-      <div class="box"><img src="img/art6.jpg" alt="Art 6"><div class="caption"><h4>Artist 6</h4><p>Traditional</p></div></div>
-      <div class="box"><img src="img/art7.jpg" alt="Art 7"><div class="caption"><h4>Artist 7</h4><p>Digital Art</p></div></div>
-      <div class="box"><img src="img/art8.jpg" alt="Art 8"><div class="caption"><h4>Artist 8</h4><p>Sketch</p></div></div>
-      <div class="box"><img src="img/art9.jpg" alt="Art 9"><div class="caption"><h4>Artist 9</h4><p>Traditional</p></div></div>
-      <div class="box"><img src="img/art10.jpg" alt="Art 10"><div class="caption"><h4>Artist 10</h4><p>Digital Art</p></div></div>
+<!--================= Artist Section ================= -->
+<section class="portfolio py-5 text-center" id="artist">
+  <div class="container-fluid">
+
+<h1 class="text-center text-white display-3 fw-bold mb-4 gallery-title">
+  Gallery
+</h1>
+    <div class="position-relative">
+
+      <!-- Gallery -->
+      <div class="gallery-scroll d-flex gap-3 overflow-auto px-5" id="gallery">
+
+        <!-- Gallery items -->
+        <div class="gallery-box">
+          <img src="img/art1.jpg" alt="Art 1">
+          <div class="caption">
+            <h4>Artist 1</h4>
+            <p>Digital Art</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art2.jpg" alt="Art 2">
+          <div class="caption">
+            <h4>Artist 2</h4>
+            <p>Sketch</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art3.jpg" alt="Art 3">
+          <div class="caption">
+            <h4>Artist 3</h4>
+            <p>Traditional</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art4.jpg" alt="Art 4">
+          <div class="caption">
+            <h4>Artist 4</h4>
+            <p>Digital Art</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art5.jpg" alt="Art 5">
+          <div class="caption">
+            <h4>Artist 5</h4>
+            <p>Digital Art</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art6.jpg" alt="Art 6">
+          <div class="caption">
+            <h4>Artist 6</h4>
+            <p>Traditional</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art7.jpg" alt="Art 7">
+          <div class="caption">
+            <h4>Artist 7</h4>
+            <p>Digital Art</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art8.jpg" alt="Art 8">
+          <div class="caption">
+            <h4>Artist 8</h4>
+            <p>Sketch</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art9.jpg" alt="Art 9">
+          <div class="caption">
+            <h4>Artist 9</h4>
+            <p>Traditional</p>
+          </div>
+        </div>
+
+        <div class="gallery-box">
+          <img src="img/art10.jpg" alt="Art 10">
+          <div class="caption">
+            <h4>Artist 10</h4>
+            <p>Digital Art</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- arrows -->
+      <button class="scroll-btn left" id="scrollLeft">&#10094;</button>
+      <button class="scroll-btn right" id="scrollRight">&#10095;</button>
+
     </div>
-    </div>
-  <!-- أسهم -->
-  <button class="scroll-btn left">&#10094;</button>
-  <button class="scroll-btn right">&#10095;</button>
-</div>
+  </div>
 </section>
-<script src="art.js"></script>
+
+<!-- JS Scroll -->
+<script>
+  const gallery = document.getElementById("gallery");
+  const leftBtn = document.getElementById("scrollLeft");
+  const rightBtn = document.getElementById("scrollRight");
+
+  // تحقق من العنصر
+  console.log(gallery); 
+
+  // Scroll functionality
+  rightBtn.onclick = () => gallery.scrollBy({ left: 300, behavior: "smooth" });
+  leftBtn.onclick = () => gallery.scrollBy({ left: -300, behavior: "smooth" });
+</script>
 </body>
 </html>
