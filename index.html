@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
   </head>
 
 <body>
@@ -17,9 +21,11 @@
 
 <!-- Header -->
 
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
-            <h1 class="logo"><a href="index.html">ART +249</a></h1>
+        <a class="navbar-brand mt-0 mb-0" href="#home">
+          <img src="img/logo.png" alt="logo" class="logo-img" />
+        </a>
           <button
           class="navbar-toggler"
           type="button"
@@ -58,7 +64,7 @@
     </div>
 </nav>
 <!-- Hero Section -->
-<div class="bg-img" style="background-image: url('img/Starry Night_.jpg');">
+<div class="bg" style="background-image: url('img/Starry Night_.jpg');">
    <section class="hero d-flex justify-content-center align-items-center">
     <div class="hero-box text-light p-4 text-start mt-5">
         <h2 class="mb-3">
@@ -86,47 +92,82 @@
     </div>
 </section>
 
-<section id="gallery" class="gallery-page">
-<h1 class="gall"> Gallery </h1>
-
-<div class="gallery">
-    <a id="link1">
-        <div class="card">
-            <img id="img1">
-            <h3 id="title1"></h3>
+  <section id="gallery" class="gallery-section">
+   <div class="our-work text-center pt-5 pb-5">
+      <div class="container">
+        <div class="main-title mt-5 mb-5 position-relative">
+          <h2 class="fw-bold">We Make This</h2>
+          <p class="text-black-50 text-uppercase">Prepare To Be Amazed</p>
         </div>
-    </a>
-
-    <a id="link2">
-        <div class="card">
-            <img id="img2">
-            <h3 id="title2"></h3>
+        <ul class="list-unstyled d-flex justify-content-center mt-5 mb-5">
+          <li class="active rounded-pill">All</li>
+          <li>Design</li>
+          <li>Code</li>
+          <li>Photo</li>
+          <li>App</li>
+        </ul>
+        <div class="row g-3">
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+            <div class="box mb-3 bg-white" data-work="Application">
+              <img class="img-fluid" src="img/art1.jpg" alt="" />
+            </div>
+          </div>
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+            <div class="box mb-3 bg-white" data-work="Application">
+              <img class="img-fluid" src="img/art2.jpg" alt="" />
+            </div>
+          </div>
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+            <div class="box mb-3 bg-white" data-work="Application">
+              <img class="img-fluid" src="img/art3.jpg" alt="" />
+            </div>
+          </div>
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+            <div class="box mb-3 bg-white" data-work="Application">
+              <img class="img-fluid" src="img/art4.jpg" alt="" />
+            </div>
+          </div>
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+            <div class="box mb-3 bg-white" data-work="Application">
+              <img class="img-fluid" src="img/art5.jpg" alt="" />
+            </div>
+          </div>
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+            <div class="box mb-3 bg-white" data-work="Application">
+              <img class="img-fluid" src="img/art6.jpg" alt="" />
+            </div>
+          </div>
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+            <div class="box mb-3 bg-white" data-work="Application">
+              <img class="img-fluid" src="img/art7.jpg" alt="" />
+            </div>
+          </div>
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+            <div class="box mb-3 bg-white" data-work="Application">
+              <img class="img-fluid" src="img/art8.jpg" alt="" />
+            </div>
+          </div>
         </div>
-    </a>
-
-    <a id="link3">
-        <div class="card">
-            <img id="img3">
-            <h3 id="title3"></h3>
+        <div class="d-flex justify-content-center mt-5">
+          <a class="btn rounded-pill main-btn text-uppercase" href="#">I Want More</a>
         </div>
-    </a>
+      </div>
+    </div>
+  </section>
+<script>
+  // اختر كل روابط nav داخل collapse
+  const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
 
-    <a id="link4">
-        <div class="card">
-            <img id="img4">
-            <h3 id="title4"></h3>
-        </div>
-    </a>
-</div>
-
-<div class="buttons">
-    <button onclick="showPage(0)">1</button>
-    <button onclick="showPage(1)">2</button>
-    <button onclick="showPage(2)">3</button>
-</div>
-</section>
-
-<script src="gall.js"></script>
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      // لو الكلاس show موجود (يعني القائمة مفتوحة)
+      if (navbarCollapse.classList.contains('show')) {
+        new bootstrap.Collapse(navbarCollapse).toggle();
+      }
+    });
+  });
+</script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/all.min.js"></script>
 </body>

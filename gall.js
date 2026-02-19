@@ -1,56 +1,47 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const galleryContainer = document.getElementById('galleryContainer');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalImage = document.getElementById('modalImage');
+  const modalLink = document.getElementById('modalLink');
+  const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
 
-const pages = [
+  const pages = [
     [
-        { img: "img/art1.jpg", title: "لوحة فنية 1", link: "details.html?art=1" },
-        { img: "img/art2.jpg", title: "لوحة فنية 2", link: "details.html?art=2" },
-        { img: "img/art3.jpg", title: "لوحة فنية 3", link: "details.html?art=3" },
-        { img: "img/art4.jpg", title: "لوحة فنية 4", link: "details.html?art=4" }
-    ],
-    [
-        { img: "img/art5.jpg", title: "لوحة فنية 5", link: "details.html?art=5" },
-        { img: "img/art6.jpg", title: "لوحة فنية 6", link: "details.html?art=6" },
-        { img: "img/art7.jpg", title: "لوحة فنية 7", link: "details.html?art=7" },
-        { img: "img/art8.jpg", title: "لوحة فنية 8", link: "details.html?art=8" }
-    ],
-    [
-        { img: "img/art9.jpg", title: "لوحة فنية 9", link: "details.html?art=9" },
-        { img: "img/art10.jpg", title: "لوحة فنية 10", link: "details.html?art=10" },
-        { img: "img/art11.jpg", title: "لوحة فنية 11", link: "details.html?art=11" },
-        { img: "img/art12.jpg", title: "لوحة فنية 12", link: "details.html?art=12" }
+      { img: "img/art1.jpg", title: "لوحة فنية 1", link: "details.html?art=1" },
+      { img: "img/art2.jpg", title: "لوحة فنية 2", link: "details.html?art=2" },
+      { img: "img/art3.jpg", title: "لوحة فنية 3", link: "details.html?art=3" },
+      { img: "img/art4.jpg", title: "لوحة فنية 4", link: "details.html?art=4" }
     ]
-];
+  ];
 
-function showPage(pageIndex) {
-    for (let i = 0; i < 4; i++) {
-        const imgEl = document.getElementById("img" + (i + 1));
-        const titleEl = document.getElementById("title" + (i + 1));
-        const linkEl = document.getElementById("link" + (i + 1));
+  function showPage(pageIndex) {
+    galleryContainer.innerHTML = "";
 
-        if (pages[pageIndex][i]) {
-            imgEl.src = pages[pageIndex][i].img;
-            titleEl.innerText = pages[pageIndex][i].title;
-            linkEl.href = pages[pageIndex][i].link;
-            linkEl.style.display = "block";
-        } else {
-            linkEl.style.display = "none";
-        }
-    }
-}
+    pages[pageIndex].forEach(function(item) {
+      const card = document.createElement('div');
+      card.className = 'card gallery-box';
+      card.style.width = '220px';
+      card.style.cursor = 'pointer';
+      card.style.position = 'relative';
+      card.innerHTML = 
+        <img src="${item.img}" class="img-fluid w-100" alt="${item.title}">
+        <div class="caption position-absolute bottom-0 start-0 w-100 text-center text-white bg-dark bg-opacity-50 py-2">
+          <h5>${item.title}</h5>
+        </div>
+      ;
 
-// عرض الصفحة الأولى عند التحميل
-document.addEventListener('DOMContentLoaded', () => {
-    showPage(0);
+      card.addEventListener('click', function(e) {
+        e.preventDefault();
+        modalTitle.textContent = item.title;
+        modalImage.src = item.img;
+        modalLink.href = item.link;
+        imageModal.show();
+      });
+
+      galleryContainer.appendChild(card);
+    });
+  }
+
+  showPage(0);
+  window.showPage = showPage;
 });
-
-//JavaScript for mobile menu 
-
-    const menuBtn = document.getElementById("menu-btn");
-    const navMenu = document.getElementById("nav-menu");        
-    menuBtn.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-    });
-    navMenu.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            navMenu.classList.remove("active");
-        });
-    });
