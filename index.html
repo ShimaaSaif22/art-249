@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,77 +17,81 @@
   </head>
 
 <body>
-    
-
-<!-- Header -->
-
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg sticky-top">
       <div class="container">
-        <a class="navbar-brand mt-0 mb-0" href="#home">
-          <img src="img/logo.png" alt="logo" class="logo-img" />
+        <a class="navbar-brand" href="index.html">
+          <img src="img/logo.png" alt="" />
         </a>
-          <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#main"
-          aria-controls="main"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+    <!-- زر الهامبورغر على اليمين -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#main"
+      aria-controls="main"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
         <div class="collapse navbar-collapse" id="main">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 active" aria-current="page"href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3"href="#about">About</a>
-            </li>
-          <li class="nav-item">
-            <a class="nav-link p-2 p-lg-3" href="#gallery">Gallery</a>
+          <a class="nav-link p-2 p-lg-3 active" aria-current="page" href="index.html">الرئيسية</a>
         </li>
-          <li class="nav-item">
-            <a class="nav-link p-2 p-lg-3" href="requests.html">Drawing Requests</a>
+        <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3" href="#about">عنا</a>
         </li>
-          <li class="nav-item">
-            <a class="nav-link p-2 p-lg-3" href="#contact">Contact</a>
+        <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3" href="#gallery">المعرض</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3" href="requests.html">طلبات الرسم</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3" href="#gallery">دورات تدريبية</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3" href="#contact">تواصل معنا</a>
         </li>
       </ul>
-      
-          <div class="search ps-3 pe-3 d-none d-lg-block">
+
+      <div class="search ps-3 pe-3 d-none d-lg-block">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
-          
-          <a class="btn rounded-pill main-btn" href="login.html">Login</a>
-    </div>
-</nav>
+          <a class="btn rounded-pill main-btn" href="login.html">تسجيل الدخول</a>
+        </div>
+      </div>
+    </nav>
 <!-- Hero Section -->
 <div class="bg" style="background-image: url('img/Starry Night_.jpg');">
+  
+  
    <section class="hero d-flex justify-content-center align-items-center">
-    <div class="hero-box text-light p-4 text-start mt-5">
+    <img src="img/LOGO.png" alt="" class="img-logo">
+    <div class="hero-box text-light p-4 text-start mt-6">
         <h2 class="mb-3">
-            Hello everyone <br>
-            This is where art resides
+          
+             مساحة تجمع<br> الفن والإبداع
         </h2>
         <p>
-            Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
-            Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
-            Curabitur aliquet quam.
+ابدأ رحلتك الفنية اليوم… وحوّل فكرتك إلى عمل فني مميز.
+
         </p>
     </div>
+    
 </section>
 </div>
 
 <!-- ================= About Section ================= -->
 <section id="about" class="about-section">
     <div class="container">
-        <h2>About ART +249</h2>
+        <h2> ART +249</h2>
         <p>
-            ART +249 is a community where artists and art lovers connect. 
-            We showcase amazing artwork, provide drawing requests, and celebrate creativity. 
-            Join us to explore, learn, and share your passion for art!
+             هو مجتمع يجمع بين الفنانين ومحبي الفن. 
+            نعرض أعمال فنية مذهلة، ونقدم طلبات رسم،
+             نقدّم دورات تدريبية في الرسم لجميع المستويات، ونحتفل بالإبداع. 
+            انضم إلينا لاستكشاف، والتعلم، ومشاركة شغفك بالفن!
         </p>
     </div>
 </section>
@@ -154,21 +158,9 @@
       </div>
     </div>
   </section>
-<script>
-  // اختر كل روابط nav داخل collapse
-  const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      const navbarCollapse = document.querySelector('.navbar-collapse');
-      // لو الكلاس show موجود (يعني القائمة مفتوحة)
-      if (navbarCollapse.classList.contains('show')) {
-        new bootstrap.Collapse(navbarCollapse).toggle();
-      }
-    });
-  });
-</script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/all.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

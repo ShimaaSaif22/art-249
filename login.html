@@ -1,70 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">                    
+<html lang="ar">                    
 <head>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ART +249</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="log.css">
-   <!-- Font Awesome -->
-       <link rel="stylesheet"
-     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-       integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4Ck8M5L1WlZg7+J0xX0xC5Fkg=="
-       crossorigin="anonymous"
-       referrerpolicy="no-referrer">
-</head>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/log.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+  </head>
 <body>
-<!-- Header -->
-<nav id="header">
-    <div class="navbar container">
-        <a href="index.html">
-            <h1 class="logo">ART +249</h1>
-        </a>
+  <!-- Stars & swirling effects -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+  <div class="swirls"></div>
 
-        <div class="toggle-menu" id="menu-btn">☰</div>
-<ul id="nav-menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="artist.html">Artist</a></li>
-    <li><a href="requests.html">Drawing Requests</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-</ul>
+  <!-- Navbar -->
+   
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">ART +249</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main" aria-controls="main" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="main">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">عنا</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">المعرض</a></li>
+          <li class="nav-item"><a class="nav-link" href="requests.html">طلبات الرسم</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">تواصل معنا</a></li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
-        <div class="bg-img">
-            <div class="content">
-                <header>Login here</header>
-                <form action="#">
-                    <div class="field">
-                        <i class="fa fa-user"></i>
-                        <input type="text" placeholder="Enter Email Or Phone" required />
-                    </div>
-                    <div class="field-space">
-                        <i class="fa fa-lock"></i>
-                        <input type="password" placeholder="Enter Password" required />
-                        <span class="show">SHOW</span>
-                    </div>
-                    <div class="pass">
-                        <a href="forgot.html">Forgot Password</a>
-                    </div>
-                    <div class="fiel">
-                        <button class="button" type="button" onclick="location.href='home.html'">
-                              LOGIN</button>
-                    </div>
-                </form>
-                <div class="login">Or Login With</div>
-                <div class="links">
-                    <div class="facebook">
-                        <i class="fa fa-facebook"><span>facebook</span></i>
-                    </div>
-                    <div class="gmail">
-                        <i class="fa fa-envelope"><span>G-Mail</span></i>
-                    </div>
-                </div>
-                    <div class="sigup">Don't have an account? <a href="sing.html">SingUp Now</a>
-                    </div>  
-            </div>
+  <!-- Login Card -->
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card login-card p-4">
+      <img src="img/logo.png" class="text-center mb-4 mx-auto" alt="Logo" style="width: 200px;">
+      <form action="home.html">
+        <div class="input-group mb-3 position-relative">
+          <span class="input-group-text bg-transparent text-light border-0 width-auto">
+            <i class="fa-solid fa-user"></i>
+          </span>
+          <input type="text" class="form-control custom-input" placeholder="اسم المستخدم" required>
         </div>
+
+        <!-- Password -->
+         <div class="input-group mb-3 position-relative">
+          <span class="input-group-text bg-transparent text-light border-0">
+            <i class="fa-solid fa-eye" id="togglePassword" style="cursor: pointer;"></i>
+          </span>
+  <input type="password" id="password" class="form-control custom-input" placeholder="كلمة المرور" required>
+    
+</div>
+
+        <div class="text-end mb-3">
+          <a href="forgot.html" class="small text-info text-decoration-none">نسيت كلمة المرور؟</a>
+        </div>
+
+        <button type="submit" class="btn w-100 rounded-pill main-btn text-uppercase">تسجيل الدخول</button>
+      </form>
+    </div>
+  </div>
+
+<!-- Bootstrap JS -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- Font Awesome -->
+<script src="js/all.min.js"></script>
+
+<!-- Navbar collapse on mobile -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/all.min.js"></script>
+<script src="js/script.js"></script>     
 </body>
 </html>

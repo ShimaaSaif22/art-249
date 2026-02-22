@@ -1,37 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">                    
+<html lang="ar">                    
 <head>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ART +249</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="sin.css">
-       <!-- Font Awesome -->
-       <link rel="stylesheet"
-     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-       integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4Ck8M5L1WlZg7+J0xX0xC5Fkg=="
-       crossorigin="anonymous"
-       referrerpolicy="no-referrer">
-</head>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+  </head>
+
 <body>
 <!-- Header -->
-<nav id="header">
-    <div class="navbar container">
-        <a href="index.html">
-            <h1 class="logo">ART +249</h1>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+            <a class="navbar-brand mt-0 mb-0" href="#home">
+          <img src="img/logo.png" alt="logo" class="logo-img" />
         </a>
-
-        <div class="toggle-menu" id="menu-btn">☰</div>
-<ul id="nav-menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="artist.html">Artist</a></li>
-    <li><a href="requests.html">Drawing Requests</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="login.html">Login</a></li>
-</ul>
+     
+          <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#main"
+          aria-controls="main"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="main">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 active" aria-current="page"href="index.html">الرئيسية</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3"href="#about">عنا</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link p-2 p-lg-3" href="#gallery">المعرض</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link p-2 p-lg-3" href="requests.html">طلبات الرسم</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link p-2 p-lg-3" href="#contact">تواصل معنا</a>
+        </li>
+      </ul>
+      
+          <div class="search ps-3 pe-3 d-none d-lg-block">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          
+          <a class="btn rounded-pill main-btn" href="login.html">تسجيل الدخول</a>
     </div>
+    </div>
+
+
 </nav>
+
 <div class="bg-img">
  <form action="/action_page.php" style="border:1px solid #ccc">
   <div class="content">
@@ -60,5 +93,21 @@
   </div>
  </form>
 </div>
+<script>
+  // اختر كل روابط nav داخل collapse
+  const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      // لو الكلاس show موجود (يعني القائمة مفتوحة)
+      if (navbarCollapse.classList.contains('show')) {
+        new bootstrap.Collapse(navbarCollapse).toggle();
+      }
+    });
+  });
+</script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/all.min.js"></script>
 </body>
 </html>
