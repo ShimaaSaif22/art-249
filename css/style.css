@@ -81,17 +81,14 @@ html, body {
 }
 
 .hero-box {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 520px;
+  position: relative;
   background-color: rgba(1, 60, 136, 0.65);
 }
 
 .hero-box h2 {
   font-size: 32px;
   font-weight: 600;
+  text-align: right;
 }
 
 .hero-box p {
@@ -103,6 +100,12 @@ html, body {
 
 /* Responsive Hero */
 @media (max-width: 767px) {
+  .imge {
+    display: none;
+  }
+    .hero-box {
+        padding: 20px;
+    } 
     .text {
         width: 90%;
         padding: 15px;
@@ -174,6 +177,11 @@ html, body {
     }
 }
 /* ================= End About Section ================= */
+/* Start Stuff */
+.stuff .description {
+  max-width: 500px;
+}
+/* End Stuff */
 /* Start Our Work */
 .our-work {
   background-color: var(--green-color);
@@ -304,3 +312,22 @@ button a {
   }
 }
 /* End sing */
+/* Start Subscribe */
+.subscribe {
+  background-color: var(--yellow-color);
+}
+.subscribe input[type="text"] {
+  border: none;
+  border-bottom: 1px solid white;
+}
+.subscribe input[type="text"]:focus {
+  outline: none;
+}
+.subscribe ::placeholder {
+  color: white;
+}
+.subscribe input[type="submit"] {
+  background-color: var(--dark-gray);
+  color: var(--yellow-color);
+}
+/* End Subscribe */

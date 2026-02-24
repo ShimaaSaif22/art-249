@@ -24,3 +24,6 @@ togglePassword.addEventListener("click", function () {
   icon.classList.toggle("fa-eye");
   icon.classList.toggle("fa-eye-slash");
 });
+
+const toastElList = document.querySelectorAll('.toast')
+const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl, option))

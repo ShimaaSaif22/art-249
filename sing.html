@@ -93,21 +93,8 @@
   </div>
  </form>
 </div>
-<script>
-  // اختر كل روابط nav داخل collapse
-  const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      const navbarCollapse = document.querySelector('.navbar-collapse');
-      // لو الكلاس show موجود (يعني القائمة مفتوحة)
-      if (navbarCollapse.classList.contains('show')) {
-        new bootstrap.Collapse(navbarCollapse).toggle();
-      }
-    });
-  });
-</script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/all.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
