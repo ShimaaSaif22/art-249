@@ -19,11 +19,24 @@ togglePassword.addEventListener("click", function () {
   const type = password.type === "password" ? "text" : "password";
   password.type = type;
 
-  // تبديل الأيقونة
-  const icon = this.querySelector("i");
-  icon.classList.toggle("fa-eye");
-  icon.classList.toggle("fa-eye-slash");
+  // تبديل الأيقونة مباشرة
+  this.classList.toggle("fa-eye");
+  this.classList.toggle("fa-eye-slash");
 });
-
 const toastElList = document.querySelectorAll('.toast')
 const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl, option))
+toastList.forEach(toast => toast.show())
+
+// --------- search ---------
+const toggleSearch = document.getElementById("toggleSearch");
+const searchInput = document.getElementById("searchInput");
+
+toggleSearch.addEventListener("click", () => {
+  if (searchInput.value !== "") {
+    searchInput.value = ""; // يمسح النص
+    toggleSearch.classList.remove("fa-times");
+    toggleSearch.classList.add("fa-search");
+  } else {
+    searchInput.focus();
+  }
+});

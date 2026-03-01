@@ -6,7 +6,6 @@ body {
   position: relative;
    font-family: "Open Sans", sans-serif;
 }
-
 /* نجوم ثابتة وطبقات مختلفة */
 .stars, .stars2, .swirls {
   position: fixed;
@@ -64,7 +63,7 @@ body {
   font-family: "Open Sans", sans-serif;
   position: relative;
   z-index: 10;
-  background: rgba(13, 27, 42, 0.9);
+  background: rgba(28, 75, 125, 0.9);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   width: 100%;

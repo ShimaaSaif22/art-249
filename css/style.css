@@ -71,6 +71,24 @@ html, body {
   width: 90px;
   height: auto;
 }
+
+.search-wrapper {
+  position: relative;
+  width: 150px;
+  height: 20px;
+  margin-bottom: 30px;
+} 
+
+
+.search-wrapper .fa {
+  color: #94acc2;
+  transition: color 0.3s;
+}
+
+.search-wrapper .fa:hover {
+  color: var(--green-color);
+}
+
 /* End Navbar */
 /* ================= Hero Section ================= */
 .bg {
