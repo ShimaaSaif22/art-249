@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">                    
+<html lang="ar"  dir="rtl">                    
 <head>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,24 +24,52 @@
   <div class="swirls"></div>
 
   <!-- Navbar -->
-   
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">ART +249</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main" aria-controls="main" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="main">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">الرئيسية</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">عنا</a></li>
-          <li class="nav-item"><a class="nav-link" href="#gallery">المعرض</a></li>
-          <li class="nav-item"><a class="nav-link" href="requests.html">طلبات الرسم</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">تواصل معنا</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <a class="navbar-brand col-8 col-sm-6 col-md-4 col-lg-3" href="index.html">
+          <img class="img-fluid" src="img/logo.png" alt="" />
+        </a>
+    <!-- زر الهامبورغر على اليمين -->
+    <button
+      class="navbar-toggler col-2 col-sm-4"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#main"
+      aria-controls="main"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse col-10 col-sm-8 col-md-6 col-lg-7" id="main">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3 active" aria-current="page" href="index.html">الرئيسية</a>
+        </li>
+        <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3" href="#about">عنا</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3" href="#gallery">المعرض</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3" href="requests.html">طلبات الرسم</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3" href="#gallery">دورات تدريبية</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3" href="#contact">تواصل معنا</a>
+        </li>
+      </ul>
+
+      <div class="search ps-3 pe-3 d-none d-lg-block">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <a class="btn rounded-pill main-btn" href="login.html">تسجيل الدخول</a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
   <!-- Login Card -->
   <div class="container d-flex justify-content-center align-items-center vh-100">
@@ -69,6 +97,11 @@
         </div>
 
         <button type="submit" class="btn w-100 rounded-pill main-btn text-uppercase">تسجيل الدخول</button>
+
+        <div class="text-end mt-3">
+          <a href="sing.html" class="small text-info text-decoration-none">ليس لديك حساب؟ سجل الآن</a>
+        </div>
+
       </form>
     </div>
   </div>
@@ -77,10 +110,7 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <!-- Font Awesome -->
 <script src="js/all.min.js"></script>
-
-<!-- Navbar collapse on mobile -->
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/all.min.js"></script>
-<script src="js/script.js"></script>     
+<!-- Custom JS -->
+<script src="js/script.js"></script>    
 </body>
 </html>

@@ -1,247 +1,74 @@
-/* Variables */
-:root {
-    --bg-color: #f1f1f1;
+.gallery-scroll {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+   cursor: grab;
+  user-select: none;
 }
 
-.bg-img {
-    background: url('img/Starry\ Night_.jpg');
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
+.gallery-scroll::-webkit-scrollbar {
+  display: none;
 }
 
-
-/* ================= Gallery ================= */
-.gallery-page{
-    background-color: var(--dark-gray);
-    background-image: none;
-    text-align: center;
-    padding-top: 90px;
-    padding-bottom: 20px;
-    color: white;
-    font-family: "Open Sans", sans-serif;
+.gallery-box {
+  min-width: 250px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: .3s;
 }
 
-        .gall {
-            color: white;
-            text-shadow: 0 0 5px #000;
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-         
-        .gall:hover {
-            color: var(--green-color);
-            text-shadow: 0 0 5px #ffffff;
-        }
-
-        .gallery {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .card {
-            flex: 1 1 calc((100% - 15px) / 4); /* 4 صور في الصف مع فجوة 15px */
-            max-width: 250px;
-            height: 270px;
-            width: 250px;
-            flex-direction: column;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.3s;
-            cursor: pointer;
-            display: flex;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .card h3 {
-            margin: 10px 0;
-            margin: 10px 0;
-            font-size: 16px;
-            color: #555;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .buttons {
-            padding-top: 15px;
-            margin-bottom: 40px;
-        }
-
-        .buttons button {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            font-weight: bold;
-            font-size: 16px;
-            background: linear-gradient(135deg, #7788de, #1542d8);
-            color: var(--dark-gray);
-            border: none;
-            cursor: pointer;
-            margin: 5px;
-        }
-        .buttons button:hover {
-            background: linear-gradient(135deg, #1b6adf, #afc6ee);
-        }
-        .buttons button:focus {
-            outline: none;
-        }
-        .hidden {
-            display: none;
-        }
-
-@media (max-width: 1024px) {
-    .card {
-        flex: 0 1 calc((100% - 2 * 15px) / 3); /* 3 صور + 2 gaps */
-    }
+.gallery-box:hover {
+  transform: translateY(-5px);
 }
 
-@media (max-width: 768px) {
-    .card {
-        flex: 0 1 calc((100% - 15px) / 2); /* 2 صور + 1 gap */
-    }
+.gallery-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-@media (max-width: 480px) {
-    .card {
-        flex: 0 1 100%; /* صورة واحدة في الصف */
-    }
+.caption {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: .3s;
 }
-/* ================= End Gallery ================= */
 
-/* ================= Start Details ================= */
-  body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
+.gallery-box:hover .caption {
+  opacity: 1;
+}
 
-        .art-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;  
-            background: rgba(255, 255, 255, 0.671);
-            top: 15%;
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 800px;
-            margin: 40px auto;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
+/* أزرار الأسهم */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  font-size: 28px;
+  z-index: 10;
+}
 
-        img {
-            width: 350px;
-            border-radius: 10px;
-            height: 400px;
-        }
+.scroll-btn.left {
+  left: 0;
+}
 
-        h2 {
-            font-size: 36px;
-            margin-top: 15px;
-            font-family: 'Montserrat' ,sans-serif;
-            font-style: bold;
-        }
+.scroll-btn.right {
+  right: 0;
+}
 
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            font-family: 'Montserrat' ,sans-serif;
-            font-style: bold;
-        }
-
-        .buttons-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .bttn {
-            width: 100%;
-            height: 45px;
-            line-height: 45px;
-            margin-left: 10px;
-            background: var(--bg-color);
-            border: 1px solid #3d2913;
-            cursor: pointer;
-            color: white;
-            font-size: 16px;
-            justify-content: center;
-        }
-
-     
-        .bttn:hover {
-            background: #3d2913;
-            opacity: 1;
-        }   
-        /* --------- Popup Styles --------- */
-        .modal {
-            display: none; /* مخفي افتراضياً */
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.5);
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 10% auto;
-            padding: 20px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(5, 38, 84, 0.2);
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: black;
-        }
-
-        .modal a {
-            display: block;
-            margin: 15px 0;
-            padding: 10px 15px;
-            border-radius: 10px;
-            background: var(--bg-color);
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .modal a:hover {
-            background: #3d2913;
-        }
-/* ================= End Details ================= */
+.scroll-btn:hover {
+  background: rgba(0,0,0,.9);
+}
